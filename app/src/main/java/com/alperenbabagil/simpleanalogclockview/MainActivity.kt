@@ -9,6 +9,8 @@ import kotlin.collections.RandomAccess
 
 class MainActivity : AppCompatActivity() {
 
+    var changeByDate=false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,9 +18,15 @@ class MainActivity : AppCompatActivity() {
         val random=Random()
         Timer().scheduleAtFixedRate(object : TimerTask(){
             override fun run() {
-                clockview.updateTime(Date(random.nextLong()))
+                if(changeByDate){
+                    clockview.updateTime(Date(random.nextLong()))
+                }
+                else{
+                    clockview.hour=16
+                    clockview.minute=20
+                }
+                changeByDate=!changeByDate
             }
-
         },0,1000)
     }
 }

@@ -23,12 +23,14 @@ class SimpleAnalogClockView @JvmOverloads constructor(
 
     @ColorRes
     var minuteHandColorResId: Int = defaultColor
+
     @ColorRes
     var hourHandColorResId: Int = defaultColor
+
     @ColorRes
     var borderColorResId: Int = defaultColor
 
-    var min = 0
+    var minute = 0
         set(value) {
             field = value
             arrangeTime()
@@ -63,7 +65,7 @@ class SimpleAnalogClockView @JvmOverloads constructor(
         val cl = Calendar.getInstance().apply {
             timeInMillis = date.time
         }
-        min = cl.get(Calendar.MINUTE)
+        minute = cl.get(Calendar.MINUTE)
         hour = cl.get(Calendar.HOUR)
 
         arrangeTime()
@@ -71,12 +73,13 @@ class SimpleAnalogClockView @JvmOverloads constructor(
 
     private fun arrangeTime() {
         val hourDegree = (hour % 12) * 30 +
-             min * 0.5 // adding extra angle because of the minute
+                minute * 0.5 // adding extra angle because of the minute
 
-        val minuteDegree = min * 6F
+        val minuteDegree = minute * 6F
 
         hourAngle = hourDegree - 90 // because of the start point and direction of android system
-        minuteAngle = minuteDegree - 90.0 // because of the start point and direction of android system
+        minuteAngle =
+            minuteDegree - 90.0 // because of the start point and direction of android system
 
         invalidate()
     }
@@ -92,30 +95,34 @@ class SimpleAnalogClockView @JvmOverloads constructor(
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(
                 it,
-                R.styleable.simple_analog_clock_view_attributes, 0, 0
+                R.styleable.simple_analog_clock_view_attributes, defStyle, defStyleRes
             )
 
-            val allItemsColor = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                resources.getColor(
-                    typedArray
-                        .getResourceId(
-                            R.styleable
-                                .simple_analog_clock_view_attributes_all_items_color,
-                            defaultColor
-                        ), context.theme
+            if (typedArray.hasValue(
+                    R.styleable
+                        .simple_analog_clock_view_attributes_all_items_color
                 )
-            } else {
-                resources.getColor(
-                    typedArray
-                        .getResourceId(
-                            R.styleable
-                                .simple_analog_clock_view_attributes_all_items_color,
-                            defaultColor
-                        )
-                )
-            }
+            ) {
+                val allItemsColor = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    resources.getColor(
+                        typedArray
+                            .getResourceId(
+                                R.styleable
+                                    .simple_analog_clock_view_attributes_all_items_color,
+                                defaultColor
+                            ), context.theme
+                    )
+                } else {
+                    resources.getColor(
+                        typedArray
+                            .getResourceId(
+                                R.styleable
+                                    .simple_analog_clock_view_attributes_all_items_color,
+                                defaultColor
+                            )
+                    )
+                }
 
-            if (allItemsColor == defaultColor) {
                 minuteHandColorResId = allItemsColor
                 hourHandColorResId = allItemsColor
                 borderColorResId = allItemsColor
@@ -126,7 +133,7 @@ class SimpleAnalogClockView @JvmOverloads constructor(
                             .getResourceId(
                                 R.styleable
                                     .simple_analog_clock_view_attributes_minute_hand_color,
-                                R.color.dark
+                                defaultColor
                             ), context.theme
                     )
                 } else {
@@ -135,7 +142,7 @@ class SimpleAnalogClockView @JvmOverloads constructor(
                             .getResourceId(
                                 R.styleable
                                     .simple_analog_clock_view_attributes_minute_hand_color,
-                                R.color.dark
+                                defaultColor
                             )
                     )
                 }
@@ -181,13 +188,17 @@ class SimpleAnalogClockView @JvmOverloads constructor(
                 }
             }
 
-            val allItemsThickness =
-                typedArray.getDimensionPixelSize(
-                    R.styleable.simple_analog_clock_view_attributes_all_items_thickness,
-                    NO_VALUE
-                ).toFloat()
+            if (typedArray.hasValue(
+                    R.styleable
+                        .simple_analog_clock_view_attributes_all_items_thickness
+                )
+            ) {
+                val allItemsThickness =
+                    typedArray.getDimensionPixelSize(
+                        R.styleable.simple_analog_clock_view_attributes_all_items_thickness,
+                        DEFAULT_THICKNESS_IN_DP.toInt()
+                    ).toFloat()
 
-            if (allItemsThickness != NO_VALUE.toFloat()) {
                 borderThickness = allItemsThickness
                 hourHandThickness = allItemsThickness
                 minuteHandThickness = allItemsThickness
@@ -212,7 +223,7 @@ class SimpleAnalogClockView @JvmOverloads constructor(
             }
 
             hour = typedArray.getInt(R.styleable.simple_analog_clock_view_attributes_hour, 0)
-            min = typedArray.getInt(R.styleable.simple_analog_clock_view_attributes_minute, 0)
+            minute = typedArray.getInt(R.styleable.simple_analog_clock_view_attributes_minute, 0)
 
             hourLengthRatio = typedArray.getFloat(
                 R.styleable.simple_analog_clock_view_attributes_hour_hand_r_ratio,
