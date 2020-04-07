@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:background="@android:color/darker_gray"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:background="@android:color/white"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:text="Custom hour, minute"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.alperenbabagil.simpleanalogclockviewlibrary.SimpleAnalogClockView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:hour="4"
+                app:minute="20"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:animateLayoutChanges="true"
+            android:background="@android:color/white"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:text="Hour controlled by code"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.alperenbabagil.simpleanalogclockviewlibrary.SimpleAnalogClockView
+                android:id="@+id/clockview"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@android:color/white"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:text="Custom colors"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.alperenbabagil.simpleanalogclockviewlibrary.SimpleAnalogClockView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:hour="12"
+                app:minute="20"
+                app:hour_hand_color="@color/colorPrimary"
+                app:minute_hand_color="@android:color/holo_green_dark"
+                app:border_color="@android:color/holo_red_light"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@android:color/white"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:text="Custom hand lengths"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.alperenbabagil.simpleanalogclockviewlibrary.SimpleAnalogClockView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:hour="13"
+                app:minute="20"
+                app:hour_hand_r_ratio="0.2"
+                app:minute_hand_r_ratio="0.5"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@android:color/white"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:text="Small sized"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.alperenbabagil.simpleanalogclockviewlibrary.SimpleAnalogClockView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:hour="12"
+                app:minute="20"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@android:color/white"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:text="Custom thickness"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.alperenbabagil.simpleanalogclockviewlibrary.SimpleAnalogClockView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:hour="12"
+                app:border_thickness="20dp"
+                app:hour_hand_thickness="1dp"
+                app:minute_hand_thickness="10dp"
+                app:minute="20"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

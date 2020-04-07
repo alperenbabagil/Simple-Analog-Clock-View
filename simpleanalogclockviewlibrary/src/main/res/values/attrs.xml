@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="simple_analog_clock_view_attributes">
+        <attr name="hour_hand_color" format="reference" />
+        <attr name="minute_hand_color" format="reference" />
+        <attr name="border_color" format="reference" />
+        <attr name="all_items_color" format="reference" />
+        <attr name="border_thickness" format="dimension" />
+        <attr name="hour_hand_thickness" format="dimension" />
+        <attr name="minute_hand_thickness" format="dimension" />
+        <attr name="all_items_thickness" format="dimension" />
+        <attr name="hour" format="integer" />
+        <attr name="minute" format="integer" />
+        <attr name="hour_hand_r_ratio" format="float" />
+        <attr name="minute_hand_r_ratio" format="float" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,3 @@
+rootProject.name='Simple Analog Clock View'
+include ':app'
+include ':simpleanalogclockviewlibrary'
