@@ -1,7 +1,7 @@
 # Simple-Analog-Clock-View
 Simple customizable analog clock view especially useful for small sizes. Compatible with Sdk v16 and higher.
 
-![](https://media.giphy.com/media/VcxL0025VcDPVpLWsQ/giphy.gif)
+![](https://media.giphy.com/media/dTzl4Ebaz6Zpc4LpKU/giphy.gif)
 
 ## Installation
 Add JitPack repository in your root build.gradle at the end of repositories:
@@ -15,7 +15,7 @@ allprojects {
 ```
 Add the dependency
 ```gradle
-implementation 'com.github.alperenbabagil:simpleanimationpopup:1.0.3'
+implementation 'com.github.alperenbabagil:Simple-Analog-Clock-View:1.0.0'
 ```
 
 ## Usage
